@@ -5,9 +5,10 @@
 
  "use strict";
 
-var express, routes, user, http, path, Twitter, OAuth, app, oa, util;
+var express, routes, index, user, http, path, Twitter, OAuth, app, oa, util;
 
 express = require('express');
+index = require('./routes/index');
 routes = require('./routes');
 user = require('./routes/user');
 http = require('http');
@@ -31,7 +32,7 @@ app.use(express.cookieParser());
 app.use(express.session({secret: 'blahblahblah'}));
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 8080);
+  app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -47,7 +48,7 @@ app.configure('development', function(){
   app.use(express.errorHandler());
 });
 
-// app.get('/', index.showTweets);
+app.get('/', index.showTweets);
 
 app.get('/users', user.list);
 
