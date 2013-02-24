@@ -9,7 +9,7 @@
 			var stemmer = new Snowball("Spanish");
 			stemmer.setCurrent(word);
 			stemmer.stem();
-			return stemmer.getCurrent();
+			alert(stemmer.getCurrent());
 		};
  
     </script>
@@ -17,5 +17,9 @@
   <body>
 
     <div id="spanish"> patatas </div>
+    <div>
+      <button onclick="stemmer('patatas')">Try it</button>
+
+    </div>
   </body>
 </html>
