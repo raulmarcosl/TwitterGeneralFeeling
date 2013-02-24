@@ -40,6 +40,7 @@ exports.showTweets = function(req, res){
 
 
     var tweets;
-  res.render('index', { tweets: tweets });
+
+    res.render('index', { tweets: tweets, title: "Best page ever" });
 };
 
