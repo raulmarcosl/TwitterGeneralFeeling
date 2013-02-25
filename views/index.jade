@@ -2,7 +2,7 @@ extends layout
 
 block scripts
       script(type='text/javascript', src='/js/index_jquery.js')
-
+      script(type='text/javascript', src='/js/pie_jquery.js') 
 
 block content
     h1= title
@@ -10,3 +10,7 @@ block content
 
     textarea.text(rows='4', cols='50')  prueba prueba
     button.stemmer(type='button') Replace
+
+    div.chart
+        div.percentage(data-percent='55') 55%
+        div.label visits
