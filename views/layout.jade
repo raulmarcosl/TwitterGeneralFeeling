@@ -1,12 +1,15 @@
 doctype 5
 html
-    head
-        title= title
-        link(rel='stylesheet', href='/stylesheets/style.css')
-        script(type='text/javascript', src='/js/lib/jquery-1.9.1.min.js')
+  head
+    title= title
 
-        block scripts
+    script(type='text/javascript', src='/js/lib/jquery-1.9.1.min.js')
+    script(type='text/javascript', src='/js/lib/jquery.easy-pie-chart.js')
+    
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', type='text/css', href='/stylesheets/jquery.easy-pie-chart.css')
 
+  block scripts
 
-    body
-        block content
+  body
+    block content
