@@ -12,6 +12,7 @@
     "twitter": "*",
     "oauth": "*",
     "util": "*",
-    "jQuery": "*"
+    "jQuery": "*",
+    "fs": "*"
   }
 }
