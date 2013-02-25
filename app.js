@@ -10,13 +10,14 @@ var express, routes, index, user, http, path, Twitter, OAuth, app, oa, util;
 express = require('express');
 index = require('./routes/index');
 routes = require('./routes');
-user = require('./routes/user');
+index = require('./routes/index');
+// user = require('./routes/user');
 http = require('http');
 path = require('path');
-Twitter = require('twitter');
 OAuth = require('oauth').OAuth;
 app = express();
 util = require('util');
+Twitter = require('twitter');
 
 oa = new OAuth(
     "https://api.twitter.com/oauth/request_token",
@@ -50,7 +51,7 @@ app.configure('development', function(){
 
 app.get('/', index.showTweets);
 
-app.get('/users', user.list);
+// app.get('/users', user.list);
 
 app.get('/auth/twitter', function (req, res) {
     oa.getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
@@ -90,6 +91,11 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                     access_token_key: oauth_access_token,
                     access_token_secret: oauth_access_token_secret
                 });
+
+                console.log(oauth_access_token, "acces token");
+                console.log(oauth_access_token_secret, "secret");
+                
+                
  
                 twit.get('https://api.twitter.com/1.1/search/tweets.json',
                     {
