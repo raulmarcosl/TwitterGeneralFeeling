@@ -1,5 +1,12 @@
 extends layout
 
+block scripts
+      script(type='text/javascript', src='/js/index_jquery.js')
+
+
 block content
-  p Welcome to #{statuses}
-  
+    h1= title
+    p Welcome to #{title}
+
+    textarea.text(rows='4', cols='50')  prueba prueba
+    button.stemmer(type='button') Replace

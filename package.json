@@ -11,6 +11,8 @@
     "less-middleware": "*",
     "twitter": "*",
     "oauth": "*",
-    "util": "*"
+    "util": "*",
+    "jQuery": "*",
+    "fs": "*"
   }
 }

@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+    <title>Online Snowball stemmers demo</title>
+    <script type="text/javascript" src="snowball.js"></script>
+    <script type="text/javascript">
+		function stemmer(word){
+			var stemmer = new Snowball("Spanish");
+			stemmer.setCurrent(word);
+			stemmer.stem();
+			alert(stemmer.getCurrent());
+		};
+ 
+    </script>
+  </head>
+  <body>
+
+    <div id="spanish"> patatas </div>
+    <div>
+      <button onclick="stemmer('patatas')">Try it</button>
+
+    </div>
+  </body>
+</html>

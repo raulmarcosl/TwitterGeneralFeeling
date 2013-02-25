@@ -56,19 +56,37 @@ exports.showTweets = function(req, res){
         access_token_secret: 'FCrvZBLwmSqzvvIg8kgSvDSS6jPaoP4TmbxU8qMRak'
     });
 
-    twitter.get('https://api.twitter.com/1.1/search/tweets.json',
-        {
-            q:'Complutense',
-            include_entities: 'false',
-            count: "2"
-        }, 
-        function(data) {
-            // console.log(data.statuses);
-            self.statuses = data.statuses;
-            // console.log(util.inspect(data.statuses[0].text));
-        });
+    // this method was used to process the lexicon, in order to get a separated terms list.
+    var tweets, negTerms = [], posTerms = "", negDoubleTerms = "", posDoubleTerms = "", ambiguousTerms = "";
 
-    console.log(this.statuses);
-  res.render('index', { statuses: JSON.stringify(statuses) });
+    require('fs')
+    .readFileSync('./public/static/lexicon.txt')
+    .toString()
+    .split('\n')
+    .forEach(function (line) {
+        var parts;
+
+        parts = line.split(/[\s]+/);
+
+        if (parts.length === 3) {
+            if (parts[2] === 'pos') {
+                posTerms += "\"" + parts[0] + "\", ";
+            } else if (parts[2] === 'neg'){
+                negTerms += "\"" + parts[0] + "\", ";
+            }
+
+        } else if (parts.length === 4) {
+
+            if (parts[2] === 'pos' && parts[3] === 'pos') {
+                posDoubleTerms += "\"" + parts[0] + "\", ";
+            } else if (parts[2] === 'neg' && parts[3] === 'neg') {
+                negDoubleTerms += "\"" + parts[0] + "\", ";
+            } else { //pos-neg or neg-pos
+                ambiguousTerms += "\"" + parts[0] + "\", ";
+            }
+        }
+    })
+
+    res.render('index', { tweets: tweets, title: "Best page ever" });
 };
 
