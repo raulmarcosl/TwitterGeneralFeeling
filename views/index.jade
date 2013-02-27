@@ -1,16 +1,27 @@
+// { tweets, title, percentage } 
+
 extends layout
 
 block scripts
-      script(type='text/javascript', src='/js/index_jquery.js')
-      script(type='text/javascript', src='/js/pie_jquery.js') 
+    script(type='text/javascript', src='/js/index_jquery.js')
+    script(type='text/javascript', src='/js/pie_jquery.js') 
 
 block content
-    h1= title
-    p Welcome to #{title}
+    div#wrapper
+        div#header
+            h2= title
+            div.search-div
+                textarea.search-area Type here 
+                button.stemmer(type='button') Go!
 
-    textarea.text(rows='4', cols='50')  prueba prueba
-    button.stemmer(type='button') Replace
+        div#content
+            div.tweet-list
+                ul
+                    each tweet in tweets
+                        li= tweet.text
 
-    div.chart
-        div.percentage(data-percent='55') 55%
-        div.label visits
+            div.chart
+                div.percentage(data-percent='#{percentage}') #{percentage}
+                div.label general approval
+
+            
