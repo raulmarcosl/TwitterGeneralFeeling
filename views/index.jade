@@ -1,18 +1,23 @@
-// { tweets, title, percentage } 
+// { tweets, title, percentage (negative) } 
 
 extends layout
 
 block scripts
     script(type='text/javascript', src='/js/index_jquery.js')
     script(type='text/javascript', src='/js/pie_jquery.js') 
+    script(type='text/javascript', src='/js/textarea_jquery.js')
 
 block content
     div#wrapper.cf
         div#header
-            h2= title
+            h1= title
             div.search-div
-                textarea.search-area Type here 
-                button.stemmer(type='button') Go!
+                table
+                    tr
+                        td
+                            textarea.search-area Type here 
+                        td#button
+                            button.stemmer(type='button') Go!
 
         div#content
             div.tweet-list
@@ -22,7 +27,8 @@ block content
                             p= tweet.text
 
             div.chart
-                div.percentage(data-percent='#{percentage}') #{percentage}
-                div.label general approval
-
-            
+                div.percentage(data-percent='#{percentage}') #{100-percentage}
+                div.label general approval: #{100-percentage}%
+    div#footer
+        p 
+            | Raúl Marcos Lorenzo - Manuel Artero Anguita - Carlos Giraldo García

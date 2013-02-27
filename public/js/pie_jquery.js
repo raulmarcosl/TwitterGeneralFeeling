@@ -5,8 +5,8 @@ $(function() {
 
     trackColor: '#88C425',
     lineCap: 'butt',
-    lineWidth: 7,
-    animate: 1000
+    lineWidth: 20,
+    animate: 2000
   });
 
 });
