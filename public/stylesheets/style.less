@@ -1,17 +1,114 @@
+@charset "utf-8";
+@SPECIAL_COLOR: #5ECBCA;
+@GREY: #BCBCBC;
+@BROKEN_WHITE: #E4E7F4;
+
+// -------------------------------------
+// general properties
+// -------------------------------------
+
 body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+    background: white;
+    margin: 0;
+    padding: 1em;
+    font: small Verdana, Arial;
+    color: black;
+    background-color: @BROKEN_WHITE;
+
+    h2 {
+        color: @SPECIAL_COLOR;
+    }
 }
 
-a {
-  color: #00B7FF;
+
+// -------------------------------------
+// position
+// -------------------------------------
+
+.cf:before,
+.cf:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
 }
 
-.percentage,
-.label {
-    text-align: center;
-    color: #333;
-    font-weight: 100;
-    font-size: 1.2em;
-    margin-bottom: 0.3em;
+.cf:after {
+    clear: both;
+}
+
+div#wrapper {
+    width: 90%;
+    height: 100%;
+    margin: auto;
+    background-color: white;
+    padding: 2em;
+
+    div#header {
+        float: left;
+        width:100%;
+        padding-bottom: 2em;
+        border-bottom: 0.2em solid @GREY;
+
+    }
+
+    div#content {
+        float: left;
+        width: 100%;
+        height: 100%;
+        
+
+        div.tweet-list {
+            width: 70%;
+            float: left;
+            position: relative;
+        }
+
+        div.chart {
+            width: 25%;
+            float: right;
+        }
+    }
+
+} 
+
+
+// -------------------------------------
+// concrete style
+// -------------------------------------
+
+.search-div {
+    textarea {
+
+    } 
+        
+    button {
+
+    }
+}
+
+.tweet-list {
+    ol {
+        font-style:italic; 
+        font-size:1.3em;
+        color:black;
+
+        li {
+            padding: 0.5em;
+
+            p {
+                padding: 0.5em; 
+                font-style:normal; 
+                font-size:0.8em;
+                border-left: 0.1em solid @SPECIAL_COLOR;
+            }
+        }
+    }
+}
+
+.chart {
+    .percentage {
+
+    }
+    .label {
+
+    }
 }

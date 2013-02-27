@@ -7,7 +7,7 @@ block scripts
     script(type='text/javascript', src='/js/pie_jquery.js') 
 
 block content
-    div#wrapper
+    div#wrapper.cf
         div#header
             h2= title
             div.search-div
@@ -16,9 +16,10 @@ block content
 
         div#content
             div.tweet-list
-                ul
+                ol
                     each tweet in tweets
-                        li= tweet.text
+                        li
+                            p= tweet.text
 
             div.chart
                 div.percentage(data-percent='#{percentage}') #{percentage}
