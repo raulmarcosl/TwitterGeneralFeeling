@@ -27,7 +27,6 @@ $(document).ready(function(){
         console.log(negMatches, "neg: ");
         console.log(doublePosMatches, "doublePos: ");
         console.log(doubleNegMatches, "doubleNeg: ");
-        console.log(ambiguousMatches, "ambiguous: ");
     });
 
     function deleteMentions (text) {
@@ -293,12 +292,6 @@ $(document).ready(function(){
             "feroz", "fijacion", "gasto", "gravedad", "ilegal", "inestable", "letal", "maldicion", "mancha", "miseria",
             "misterioso", "opresion", "oscuro", "parasito", "parodia", "pasado", "peor", "pesado", "plaga", "pleito",
             "pobre", "preocupado", "renuncia", "riguroso", "salvaje", "superficial", "tirania", "toxico", "vacio"
-        ];
-    }
-
-    function getAmbiguousTerms () {
-        return [ 
-            "abundancia", "agudo", "alerta", "aviso", "curioso", "imperial", "parcial", "rendimiento", "reposo"
         ];
     }
 });
