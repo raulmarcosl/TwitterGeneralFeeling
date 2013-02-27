@@ -12,6 +12,6 @@ logs
 results
 /node_modules/
 */sublime-*/*
-*.css
+*/*.css
 
 npm-debug.log
