@@ -1,5 +1,5 @@
 Ingeniería de Sistemas Basados en Conocimiento
-=====================
+==============================================
 
 Práctica 4: Razonamiento textual
 --------------------------------
@@ -13,16 +13,15 @@ Práctica 4: Razonamiento textual
 
 #### Fuentes de información web utilizadas
 
-Explicar por qué se ha elegido Twitter como fuente de información.
-
-1. Buena API
-2. Gran base de datos de opniones personales
+Hemos elegido ___Twitter___ como fuente de información debido a dos motivos:  
+1. Ofrece una **API sencilla y amigable** para el desarrollo web
+2. Acceso a una **gran base de datos de opniones personales** ya que el número de usuarios que comparten información a través de ___Twitter___ es mayor de 500 millones de usuarios, lo que supone una generación constante de un gran volumen de datos. 
 
 
 #### Tratamiento de texto 
 
 1. Lista de parada
-2. Describir el algoritmo de Stemmer implementado. 
+2. Algoritmo de Stemmer implementado. 
 3. ¿Lematización?
 
 
@@ -31,33 +30,42 @@ Explicar por qué se ha elegido Twitter como fuente de información.
 Descripcion de las tecnologías web utilizadas: Node  
 Exlpicar la implementación:
 
-1. Explicar la conexión con la fuente de datos (twitter),
-2. Explicar el tratamiento del texto (stemmer),
+1. Explicar la conexión con la fuente de datos
+2. Explicar el tratamiento del texto (stemmer)
 
 
-#### Requisitos de ejecución y descripción de la interfaz
+#### Requisitos de ejecución 
 
-Instrucciones de ejecución: ¿Qué hay que hacer para ejecutarlo?
+¿Qué hay que hacer para ejecutarlo?
 
-***
 
-Explicación de la interfaz
+#### Explicación de la interfaz
+
+Hemos diseñado una interfaz muy simple que consta de 3 elemetos:  
+1. Un cuadro de texto de entrada donde podremos escribir el concepto a buscar.
+2. Una lista de tweets encontrados que contienen el concepto buscado.
+3. Un gráfico que muestra el grado de positividad asociado a la palabra por la comunidad de ___twitter___
 
 
 #### Comentarios generales sobre la práctica
 
 1. ¿Te parece positivo haber utilizado tecnologías web?
+> El desarrollo con tecnologías web es la gran carencia en la formación en la ___UCM___; siempre resulta interesante aprender a utilizar e investigar nuevas tecnologías 
+
 2. Valorar el tema de la práctica y sus posibles aplicaciones prácticas
+> CONTAR QUE NOS INTERESA MUCHO 
+
 3. Extensiones posibles
+> 
 
 
 #### Grupo de trabajo
 
-|                       | Diseño | Investigación en tecnologías | Implementación | Diseño web | Memoria |
-|:----------------------|:------:|:----------------------------:|:--------------:|:----------:|:-------:|
-| Manuel Artero Aguita  |        |                              |                |            |         |     
-| Carlos Giraldo García |        |                              |                |            |         |
-| Raúl Marcos Lorenzo   |        |                              |                |            |         |
+|                       | Diseño del sistema | Investigación en tecnologías | Implementación | Diseño web | Memoria |
+|:----------------------|:------------------:|:----------------------------:|:--------------:|:----------:|:-------:|
+| Manuel Artero Aguita  |    45%             |         35%                  |    40%         |   50%      |  40%    |     
+| Carlos Giraldo García |    10%             |         5%                   |    50%         |   40%      |  30%    |
+| Raúl Marcos Lorenzo   |    45%             |         60%                  |    10%         |   10%      |  30%    |
 
 
 #### Valoración de la práctica
