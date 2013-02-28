@@ -11,14 +11,11 @@ block content
     div#wrapper.cf
         div#header
             h1= title
-            div.search-div
-                table
-                    form(method='POST', action='/search')
-                        tr
-                            td
-                                input.search-input(type='text', , name='search', placeholder='Try a search')
-                            td#button
-                                input.search-button(type='submit', name='submit', value='submit') Go!
+
+            div.search
+                form(method='get', action='/auth/twitter')
+                    input.search(type='text', name='search', placeholder='Try a search')
+                    input.search-button(type='submit', name='submit', value='submit') Go!
 
         div#content
             div.tweet-list

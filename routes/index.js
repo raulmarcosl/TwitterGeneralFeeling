@@ -6,7 +6,7 @@
 exports.showTweets = function(req, res){
 
     // DEBUG: variable temporal solo para trastear con la vista 
-    tweets = [
+    var tweets = [
         {
             "favorited": false,
             "created_at": "Mon Jun 27 19:32:19 +0000 2011",
@@ -22,7 +22,11 @@ exports.showTweets = function(req, res){
             "created_at": "Mon Jun 27 01:21:23 +0000 2011",
             "text": "This is just a test",
         }
-    ]
+    ];
+
+    if (req.session.tweets !== undefined) {
+        tweets = req.session.tweets;
+    }    
 
     res.render('index', { tweets: tweets, title: "Twitter General Feeling Analizer", percentage: 55 });
 };
