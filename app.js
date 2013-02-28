@@ -23,7 +23,7 @@ oa = new OAuth(
     "YaYAKQG4uiRlxDfQAiHOQ",
     "RGvxP9AMTM8SKQ1AiqPxNoPOZDEqkLOfm8cNsP4o",
     "1.1",
-    "http://localhost:8080/auth/twitter/callback",
+    "http://desolate-sierra-9681.herokuapp.com/auth/twitter/callback",
     "HMAC-SHA1"
 );
 
