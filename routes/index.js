@@ -31,8 +31,13 @@ exports.showTweets = function(req, res){
         
         var len = tweets.length;
         for (var i = 0; i < len; i += 1) {
-            contPositive += tweets[i].positive;
-            contNegative += tweets[i].negative;
+            if (tweets[i].retweet_count > 0) {
+                contPositive += tweets[i].positive * tweets[i].retweet_count;
+                contNegative += tweets[i].negative * tweets[i].retweet_count;
+            } else {
+                contPositive += tweets[i].positive;
+                contNegative += tweets[i].negative;
+            }
         }
         percentage = Math.round(100 * contNegative / (contPositive + contNegative));    
     }    

@@ -54,9 +54,7 @@ app.get('/auth/twitter', function (req, res) {
         if (error) {
             console.log(error, "error");
             res.send("yeah no. didn't work.");
-        } else {     
-            console.log(req.query['search'], "asdfdsaafdfdasfads");
-                          
+        } else {                               
             if (req.query['search'] === "") {
                 res.redirect('/');
             } else {
@@ -109,7 +107,9 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                             oneTweet = {};
                             oneTweet["username"] = "@" + data.statuses[i].user.screen_name;
                             oneTweet["created_at"] = data.statuses[i].created_at;
-                            oneTweet["text"] = data.statuses[i].text;                            
+                            oneTweet["text"] = data.statuses[i].text; 
+                            oneTweet["retweet_count"] = data.statuses[i].retweet_count;
+                                                                                  
                             tweets.push(oneTweet);
                         }
 
