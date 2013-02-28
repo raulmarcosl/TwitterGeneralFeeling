@@ -67,12 +67,14 @@ body span {
   float: left;
   position: relative;
 }
+
 #wrapper #content .tweet-list .tweetPositive {
   background-color: rgba(0, 255, 0, 0.3);
 }
 #wrapper #content .tweet-list .tweetNegative {
   background-color: rgba(255, 0, 0, 0.3);
 }
+
 #wrapper #content .tweet-list .username {
   font-size: 14px;
 }
