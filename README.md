@@ -15,28 +15,30 @@ Práctica 4: Razonamiento textual
 
 Hemos elegido _Twitter_ como fuente de información debido a dos motivos:  
 
-1. Ofrece una **API sencilla y amigable** para el desarrollo web. Ver ___Api de twitter___   
-2. Acceso a una **gran base de datos de opniones personales**: actualmente el número de usuarios que comparten información a través de _Twitter_ supera los 500 millones, lo que supone una generación constante de un gran volumen de datos; y en concreto de valoraciones y opiniones subjetivas. 
+1. Ofrece una API sencilla y amigable para el desarrollo web.  
+2. Acceso a una gran base de datos de opniones personales: actualmente el número de usuarios que comparten información a través de _Twitter_ supera los 500 millones, lo que supone una generación constante de un gran volumen de datos; y en concreto de valoraciones y opiniones subjetivas. 
 
 
 #### Tratamiento de texto 
 
-1. **Lista de parada:** para eliminar las palabras sin significado hemos usado una lista de parada de español publicada en ___Snowball___.  
+1. Lista de parada: para eliminar las palabras sin significado hemos usado una lista de parada de español publicada en ___Snowball___.  
 La lista contiene las palabras vacías más comunes como por ejemplo ```la, que, el, en, y, a, los, del...``` y algunas formas verbales como ```tengo, tienes...```.
 
-2. **Algoritmo de Stemmer:** hemos utilizado una librería de código abierto para la lematización de palabras. Está basada en el algoritmo de _Porter_ (y en concreto para el español).  
+2. Algoritmo de Stemmer: hemos utilizado una librería de código abierto para la lematización de palabras. Está basada en el algoritmo de _Porter_ (y en concreto para el español).  
 Es una librería gratuita liberada bajo la licencia LGLP por ___Sourceforge___.  
 
 
 #### Implementación
 
-Tecnológias web utilziadas.  
-**Node:** es un entorno de programación basado en _JavaScript_ que funciona del lado del servidor. 
-**Express** es un framework web para _Node_.
+#####Tecnológias web utilziadas.  
+
+1. Node: es un entorno de programación basado en _JavaScript_ que funciona del lado del servidor. 
+2. Express es un framework web para _Node_.
 
 ***
 
-Detalles de la implemantación:  
+#####Detalles de la implemantación:  
+
 En el archivo ```app.js``` se lanza el servidor. 
 
 ```
@@ -149,7 +151,7 @@ También se podría ampliar la capacidad semántica del analizador teniendo en c
 #### Valoración de la práctica
 
 |                       |      Valoración      |       Comentario      |
-|:----------------------|:--------------------:|:---------------------:|
+|:----------------------|:--------------------:|:----------------------|
 | nivel de dificultad   |        2/5           | La mayor dificultad ha estado en desarrollar en tecnologías nuevas, no en el diseño de la práctica en sí |
 | interés               |        5/5           | Se trata de un tema que nos parece muy interesante a los miembros del grupo      |
 
