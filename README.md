@@ -143,9 +143,9 @@ También se podría ampliar la capacidad semántica del analizador teniendo en c
 
 |                       | Diseño del sistema | Investigación en tecnologías | Implementación | Diseño web | Memoria |
 |:----------------------|:------------------:|:----------------------------:|:--------------:|:----------:|:-------:|
-| Manuel Artero Aguita  |    45%             |         30%                  |    40%         |   50%      |  50%    |     
-| Carlos Giraldo García |    10%             |         20%                  |    10%         |   10%      |  25%    |
-| Raúl Marcos Lorenzo   |    45%             |         50%                  |    50%         |   40%      |  25%    |
+| Manuel Artero Aguita  |    45%             |         40%                  |    40%         |   50%      |  60%    |     
+| Carlos Giraldo García |    5%              |         10%                  |    5%          |   5%       |  10%    |
+| Raúl Marcos Lorenzo   |    50%             |         50%                  |    55%         |   45%      |  30%    |
 
 
 #### Valoración de la práctica
