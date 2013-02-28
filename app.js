@@ -5,7 +5,7 @@
 
  "use strict";
 
-var express, routes, index, user, http, path, Twitter, OAuth, app, oa, util;
+var express, routes, index, user, http, path, Twitter, OAuth, app, oa;
 
 express = require('express');
 index = require('./routes/index');
@@ -15,14 +15,25 @@ http = require('http');
 path = require('path');
 OAuth = require('oauth').OAuth;
 app = express();
-util = require('util');
 Twitter = require('twitter');
 
+// OLD TWITTER APP: ORIGO TEST
+// oa = new OAuth(
+//     "https://api.twitter.com/oauth/request_token",
+//     "https://api.twitter.com/oauth/access_token",
+//     "acxVDBo5pbNEHjZOPaWa8w",
+//     "MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw",
+//     "1.0",
+//     "http://localhost:8080/auth/twitter/callback",
+//     "HMAC-SHA1"
+// );
+
+// NEW TWITTER APP
 oa = new OAuth(
     "https://api.twitter.com/oauth/request_token",
     "https://api.twitter.com/oauth/access_token",
-    "acxVDBo5pbNEHjZOPaWa8w",
-    "MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw",
+    "YaYAKQG4uiRlxDfQAiHOQ",
+    "RGvxP9AMTM8SKQ1AiqPxNoPOZDEqkLOfm8cNsP4o",
     "1.0",
     "http://localhost:8080/auth/twitter/callback",
     "HMAC-SHA1"
@@ -83,9 +94,18 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                 req.session.oauth.access_token = oauth_access_token;
                 req.session.oauth.access_token_secret = oauth_access_token_secret;
 
+                // OLD TWITTER APP: ORIGO TEST
+                // twit = new Twitter({
+                //     consumer_key: 'acxVDBo5pbNEHjZOPaWa8w',
+                //     consumer_secret: 'MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw',
+                //     access_token_key: oauth_access_token,
+                //     access_token_secret: oauth_access_token_secret
+                // });
+
+                // NEW TWITTER APP
                 twit = new Twitter({
-                    consumer_key: 'acxVDBo5pbNEHjZOPaWa8w',
-                    consumer_secret: 'MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw',
+                    consumer_key: 'YaYAKQG4uiRlxDfQAiHOQ',
+                    consumer_secret: 'RGvxP9AMTM8SKQ1AiqPxNoPOZDEqkLOfm8cNsP4o',
                     access_token_key: oauth_access_token,
                     access_token_secret: oauth_access_token_secret
                 });
@@ -102,7 +122,6 @@ app.get('/auth/twitter/callback', function (req, res, next) {
 
                         for (var i  = 0; i < len; i += 1) {
                             oneTweet = {};
-                            oneTweet["favorited"] = false;
                             oneTweet["username"] = "@" + data.statuses[i].user.screen_name;
                             oneTweet["created_at"] = data.statuses[i].created_at;
                             oneTweet["text"] = data.statuses[i].text;                            
@@ -115,7 +134,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
             }
         });
     } else {
-        next(new Error("you're not supposed to be here."));
+        next(new Error("You're not supposed to be here."));
     }
 });
 

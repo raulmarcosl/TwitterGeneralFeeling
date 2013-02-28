@@ -8,28 +8,18 @@ exports.showTweets = function(req, res){
     // DEBUG: variable temporal solo para trastear con la vista 
     var tweets = [
         {
-            "favorited": false,
-            "username": "@test",
-            "positive": 0,
-            "negative": 0,
+            "username": "@test1",
+            "positive": 5,
+            "negative": 2,
             "created_at": "Mon Jun 27 19:32:19 +0000 2011",
-            "text": "Misleading error message - If you try to follow a user who was recently suspended, you may see an error... http://t.co/cCIWIwg",
+            "text": "Esto es un Tweet de prueba positivo",
         }
         ,{
-            "favorited": true,
-            "username": "@test",
-            "positive": 0,
-            "negative": 0,
+            "username": "@test2",
+            "positive": 2,
+            "negative": 7,
             "created_at": "Mon Jun 27 01:21:23 +0000 2011",
-            "text": "Tweet delivery delays for streaming clients - We experienced temporary delays but the issue has now been... http://t.co/IcQut5R",
-        }
-        ,{
-            "favorited": false,
-            "username": "@test",
-            "positive": 0,
-            "negative": 0,
-            "created_at": "Mon Jun 27 01:21:23 +0000 2011",
-            "text": "This is just a test",
+            "text": "Esto es un Tweet de prueba negativo",
         }
     ];
     var searchTerm = req.session.search;
