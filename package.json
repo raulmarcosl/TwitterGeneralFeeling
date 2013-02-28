@@ -14,5 +14,9 @@
     "util": "*",
     "jQuery": "*",
     "fs": "*"
+  },
+  "engines": {
+    "node": "*",
+    "npm": "*"
   }
 }
