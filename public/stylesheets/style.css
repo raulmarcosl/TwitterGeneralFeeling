@@ -26,7 +26,7 @@ body h4 {
 .cf:after {
   clear: both;
 }
-div#wrapper {
+#wrapper {
   width: 90%;
   height: 100%;
   margin: auto;
@@ -35,23 +35,33 @@ div#wrapper {
   padding: 3em;
   border: 0.1em solid #6c7068;
 }
-div#wrapper div#header {
+#wrapper #header {
   float: left;
   width: 100%;
   padding-bottom: 2em;
   border-bottom: 0.2em solid #bcbcbc;
 }
-div#wrapper div#content {
+#wrapper #content {
   float: left;
   width: 100%;
   height: 100%;
 }
-div#wrapper div#content div.tweet-list {
+#wrapper #content .tweet-list {
   width: 70%;
   float: left;
   position: relative;
 }
-div#wrapper div#content div.chart {
+#wrapper #content .tweet-list .username {
+  font-size: 14px;
+}
+#wrapper #content .tweet-list .text {
+  font-size: 18px;
+}
+#wrapper #content .tweet-list .created_at {
+  font-size: 12px;
+  font-style: italic;
+}
+#wrapper #content .chart {
   width: 25%;
   float: right;
 }

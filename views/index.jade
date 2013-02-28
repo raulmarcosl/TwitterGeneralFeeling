@@ -22,7 +22,12 @@ block content
                 ol
                     each tweet in tweets
                         li
-                            p= tweet.text
+                            strong
+                                p.username= tweet.username + " says..."
+                            p.positive= tweet.positive
+                            p.negative= tweet.negative
+                            p.text= tweet.text
+                            p.created_at= tweet.created_at
 
             div.chart
                 div.percentage(data-percent='#{percentage}') #{100-percentage}
