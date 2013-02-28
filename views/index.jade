@@ -17,7 +17,6 @@ block content
                     input.search-input(type='text', name='search', placeholder='Try a search')
                     input.search-button(type='submit', name='submit', value='submit') Go!
 
-            //- Haz que si searchTerm = "", no muestre este cacho (if con jade, ni idea)
             if searchTerm != null 
                 div.results
                     h3 
@@ -32,18 +31,32 @@ block content
                 div.chart
                     div.percentage(data-percent='#{percentage}') #{100-percentage}
                     div.label general approval: #{100-percentage}%
+            else
+                h2 If you do a search, we can show you real data...
 
         div#content
             div.tweet-list
                 ol
                     each tweet in tweets
                         li
-                            strong
-                                p.username= tweet.username + " says..."
-                            p.positive= tweet.positive
-                            p.negative= tweet.negative
-                            p.text= tweet.text
-                            p.created_at= tweet.created_at
+                            if tweet.positive > tweet.negative
+                                .tweetPositive
+                                    strong
+                                        p.username= tweet.username + " says..."
+                                    p.text= tweet.text
+                                    p.created_at= tweet.created_at
+                            else if tweet.positive < tweet.negative
+                                .tweetNegative
+                                    strong
+                                        p.username= tweet.username + " says..."
+                                    p.text= tweet.text
+                                    p.created_at= tweet.created_at
+                            else
+                                .tweet
+                                    strong
+                                        p.username= tweet.username + " says..."
+                                    p.text= tweet.text
+                                    p.created_at= tweet.created_at
            
     div#footer
         p 

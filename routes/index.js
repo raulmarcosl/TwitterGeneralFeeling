@@ -57,7 +57,7 @@ function analyzeTweets (tweets) {
         // We delete the Twitter mentions, to avoid including usernames in the word list
         len = tweets.length;
         for (i = 0 ; i < len; i += 1) {
-            tweets[i].text = deleteMentions(tweets[i].text);
+            tweets[i].words = deleteMentions(tweets[i].text);
         }
 
         // We split the text into words, using the most common separators
