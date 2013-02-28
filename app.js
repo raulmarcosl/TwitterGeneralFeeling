@@ -56,21 +56,19 @@ app.get('/auth/twitter', function (req, res) {
             console.log(error, "error");
             res.send("yeah no. didn't work.");
         } else {
+            req.session.search = req.query['search'];
+            console.log(req.session.search, "search: ");
+            
             req.session.oauth = {};
             req.session.oauth.token = oauth_token;
-            console.log('oauth.token: ' + req.session.oauth.token);
             req.session.oauth.token_secret = oauth_token_secret;
-            console.log('oauth.token_secret: ' + req.session.oauth.token_secret);
             res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);
         }
     });
 });
 
-app.post('/search'), function (req, res) {
-    console.log("aaa");
-};
-
 app.get('/auth/twitter/callback', function (req, res, next) {
+    
     var oauth, twit;
     var homeline, self = this;
 
@@ -95,12 +93,26 @@ app.get('/auth/twitter/callback', function (req, res, next) {
 
                 twit.get('https://api.twitter.com/1.1/search/tweets.json',
                     {
-                        q:'Complutense',
+                        q: req.session.search,
                         include_entities: 'false',
-                        count: "2"
+                        count: '200',
+                        lang: 'es'
                     }, 
                     function(data) {
-                        console.log(util.inspect(data.statuses[0].text));
+                        console.log(data.statuses[0], "message");
+                        
+                        var tweets = [], len = data.statuses.length;
+
+                        for (var i  = 0; i < len; i += 1) {
+                            var oneTweet = {};
+                            oneTweet["favorited"] = false;
+                            oneTweet["created_at"] = data.statuses[i].created_at;
+                            oneTweet["text"] = data.statuses[i].text;                            
+                            tweets.push(oneTweet);
+                        }                        
+
+                        req.session.tweets = tweets;                        
+                        res.redirect('/');
                     });
             }
         });
