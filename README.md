@@ -100,6 +100,14 @@ function stemmer(word){
 
 ### Requisitos de ejecución 
 
+
+#####Ejecución en internet
+
+La página está subida a la url ___http://desolate-sierra-9681.herokuapp.com/___.
+El deploy se ha hecho gracias a _Heroku_: 
+
+*Nota:* El estilo de la página se ha diseñado para el navegador _Google Chrome_, por lo tanto es posible que no se visualice correctamente en otros navegadores (IE).   
+
 #####Ejecución en local
 
 1. Necesitaremos tener instalado _Node_ en nuestro ordenador; para ello seguimos los pasos de http://http://nodejs.org  
@@ -110,12 +118,7 @@ Esto nos instalará todas las librerías que el proyecto necesita.
 ```$> node app```  
 Nos aparecerá ```Express server listening on port 8080``` por lo que ya podremos abrir el navegador y lanzar una petición a ```localhost:8080```
 
-#####Ejecución en internet
-
-La página está subida a la url ___http://desolate-sierra-9681.herokuapp.com/___.
-El deploy se ha hecho gracias a _Heroku_: 
-
-*Nota:* El estilo de la página se ha diseñado para el navegador _Google Chrome_, por lo tanto es posible que no se visualice correctamente en otros navegadores (IE).   
+*Nota:* La ejecución en local está deshabilitada en la versión entregada de la práctica; sería necesario avisarnos para habilitarla
 
 
 ### Explicación de la interfaz
