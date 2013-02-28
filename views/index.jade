@@ -3,9 +3,7 @@
 extends layout
 
 block scripts
-    script(type='text/javascript', src='/js/index_jquery.js')
     script(type='text/javascript', src='/js/pie_jquery.js') 
-    script(type='text/javascript', src='/js/textarea_jquery.js')
 
 block content
     div#wrapper.cf
@@ -30,7 +28,7 @@ block content
                         span #{contNegative}
                 div.chart
                     div.percentage(data-percent='#{percentage}') #{100-percentage}
-                    div.label general approval: #{100-percentage}%
+                    div.label general feeling: #{100-percentage}%
             else
                 h2 If you do a search, we can show you real data...
 

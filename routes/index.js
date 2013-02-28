@@ -12,14 +12,14 @@ exports.showTweets = function(req, res){
             "positive": 5,
             "negative": 2,
             "created_at": "Mon Jun 27 19:32:19 +0000 2011",
-            "text": "Esto es un Tweet de prueba positivo",
+            "text": "Esto es un Tweet de prueba positivo"
         }
         ,{
             "username": "@test2",
             "positive": 2,
             "negative": 7,
             "created_at": "Mon Jun 27 01:21:23 +0000 2011",
-            "text": "Esto es un Tweet de prueba negativo",
+            "text": "Esto es un Tweet de prueba negativo"
         }
     ];
     var searchTerm = req.session.search;
@@ -31,8 +31,13 @@ exports.showTweets = function(req, res){
         
         var len = tweets.length;
         for (var i = 0; i < len; i += 1) {
-            contPositive += tweets[i].positive;
-            contNegative += tweets[i].negative;
+            if (tweets[i].retweet_count > 0) {
+                contPositive += tweets[i].positive * tweets[i].retweet_count;
+                contNegative += tweets[i].negative * tweets[i].retweet_count;
+            } else {
+                contPositive += tweets[i].positive;
+                contNegative += tweets[i].negative;
+            }
         }
         percentage = Math.round(100 * contNegative / (contPositive + contNegative));    
     }    
