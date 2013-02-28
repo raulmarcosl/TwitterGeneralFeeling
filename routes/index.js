@@ -32,12 +32,29 @@ exports.showTweets = function(req, res){
             "text": "This is just a test",
         }
     ];
+    var searchTerm = req.session.search;
+    var contPositive = 0, contNegative = 0;
+    var percentage = 50;
 
     if (req.session.tweets !== undefined) {
         tweets = analyzeTweets(req.session.tweets);
+        
+        var len = tweets.length;
+        for (var i = 0; i < len; i += 1) {
+            contPositive += tweets[i].positive;
+            contNegative += tweets[i].negative;
+        }
+        percentage = Math.round(100 * contNegative / (contPositive + contNegative));    
     }    
 
-    res.render('index', { tweets: tweets, title: "Twitter General Feeling Analizer", percentage: 55 });
+    res.render('index', {
+                            tweets: tweets,
+                            title: "Twitter General Feeling Analizer",
+                            searchTerm: searchTerm,
+                            contPositive: contPositive,
+                            contNegative: contNegative,
+                            percentage: percentage
+                        });
 };
 
 function analyzeTweets (tweets) {
@@ -99,10 +116,7 @@ function analyzeTweets (tweets) {
         var contPositive = 0, contNegative = 0;
         for (i = 0 ; i < len; i += 1) {
             tweets[i].positive = sorted_intersection(tweets[i].words, posTermsWithStemming).length;
-            contPositive += tweets[i].positive;
-
             tweets[i].negative = sorted_intersection(tweets[i].words, negTermsWithStemming).length;
-            contNegative += tweets[i].negative;
         }
 
     return tweets;  
@@ -339,108 +353,3 @@ function getNegTerms () {
         "venganza", "vengar", "ventolera", "verde", "virulento", "vitriolico", "voceador", "vociferador", "zamarro", "zurullo"
     ];
 }
-
-// function getNegTermsOld () {
-//     // I've deleted: chachi, humilde, ido
-//     return [
-//         "abandonar", "abandono", "abarrotado", "abatir", "abominable", "abominacion", "abominar", "aborrecer", "aborrecible",
-//         "aborrecimiento", "aborto", "abrasador", "abrumar", "absolutismo", "absurdo", "aburrido", "acabado", "achaque",
-//         "achispado", "acibarar", "acido", "acobardar", "acosar", "acre", "acusacion", "acusar", "admonitorio", "adusto",
-//         "adversidad", "advertencia", "afan", "afeccion", "afeminado", "afliccion", "afligido", "afrenta", "afrontar",
-//         "agitado", "agitar", "agobiante", "agravamiento", "agravar", "agrio", "agudeza", "ahuecamiento", "alboroto",
-//         "alcoholico", "alcornoque", "alfilerazo", "alifafe", "alocado", "altaneria", "altanero", "altivez", "altiveza",
-//         "altivo", "amargar", "amargo", "amargura", "amenazador", "amonestar", "angustia", "angustiado", "angustioso",
-//         "animal", "animosidad", "aniquilacion", "aniquilamiento", "ansia", "ansiedad", "antagonico", "antediluviano",
-//         "anticuado", "antiguo", "antipatico", "antitetico", "anular", "apenado", "apesadumbrado", "apocar", "apoderarse",
-//         "aprension", "apretura", "aprieto", "apuro", "aranazo", "arisco", "arpia", "arrancar", "arriesgado", "arriesgar",
-//         "arrogancia", "arrogante", "arruinar", "artero", "artificial", "asco", "asesino", "asimetria", "asombrar", "asqueado",
-//         "asquear", "asqueroso", "asustar", "atolladero", "atormentar", "atrevimiento", "atribulacion", "atrocidad", "atroz",
-//         "aturdir", "aturrullar", "austero", "autoritarismo", "aversion", "bacanal", "bajo", "bajon", "baladron", "barbaridad",
-//         "barbarie", "barbaro", "barrila", "basto", "basura", "befa", "belico", "belicoso", "bellaco", "berenjenal", "bestia",
-//         "bestial", "bobo", "bocon", "borracho", "botarate", "braveza", "bravucon", "bravura", "brega", "bronca", "brote",
-//         "bruja", "brutal", "bullanguero", "bullicio", "bunuelo", "burlar", "burro", "cabezota", "cabreado", "caca", "cacao",
-//         "cagada", "cagarria", "caida", "calamidad", "calamitoso", "calavera", "calvatrueno", "camorra", "camorrista", "cantada",
-//         "cante", "caos", "caradura", "cardenal", "carga", "cargante", "carniceria", "caro", "cascarrabias", "castigo",
-//         "cataclismo", "catastrofe", "catastrofico", "caucion", "caustico", "ceder", "censurar", "ceporro", "cernicalo", 
-//         "chalado", "charro", "chasco", "chiflado", "chillon", "chismorreo", "chocar", "choque", "chufleta", "cinismo", "cipote",
-//         "codicioso", "coger", "colerico", "combativo", "complicacion", "comprometer", "comun", "conceder", "condescendencia",
-//         "conflicto", "confrontacion", "congoja", "conmiseracion", "conmocion", "consternado", "consternar", "contradiccion",
-//         "contraerse", "contrariedad", "contrario", "contratiempo", "conturbar", "contusion", "copete", "corrupto", "cortante",
-//         "corto", "craso", "criatura", "criminal", "cruel", "cuento", "cuestionable", "cuita", "cuitado", "culpabilidad", "danar",
-//         "danino", "dano", "danoso", "debacle", "debil", "decaido", "decepcion", "defecto", "deficiencia", "deficiente",
-//         "degeneracion", "delatar", "deletereo", "delicado", "delincuente", "delirio", "demente", "demoler", "demonio",
-//         "denegacion", "deplorable", "deplorar", "depre", "depresivo", "deprimente", "deprimido", "deprimir", "derribar",
-//         "derrocar", "desabrido", "desabrigo", "desafecto", "desafilado", "desafio", "desafortunado", "desagradable",
-//         "desagradar", "desagradecido", "desagrado", "desalentado", "desalentador", "desalentar", "desalmado", "desamparo",
-//         "desanimar", "desapacible", "desarreglo", "desasosegado", "desasosiego", "desastre", "desastroso", "desatento",
-//         "desazon", "desbarajuste", "descarado", "descaro", "descomunal", "desconcertar", "desconsolado", "descortes",
-//         "descuello", "descuido", "desden", "desdenar", "desdicha", "desdichado", "desecho", "desencadenamiento", "desencanto",
-//         "desengano", "desesperacion", "desesperanza", "desesperanzar", "desestimacion", "desfachatez", "desfallecimiento",
-//         "desfasado", "desfavorable", "desgarbado", "desgarrador", "desgracia", "deshonra", "desigual", "desigualdad",
-//         "desilusion", "desistir", "deslumbrante", "desmanado", "desmentir", "desmesurado", "desmoralizar", "desnudar", "desolado",
-//         "desorbitado", "desorden", "despiadado", "desposeer", "despotismo", "despreciable", "despreciar", "desprecio", "desquiciar",
-//         "desquite", "destrozar", "desvanecimiento", "desventajoso", "desventura", "desventurado", "desvergonzado", "desverguenza",
-//         "detestable", "detestar", "detonador", "detrimento", "diablillo", "diablo", "dificultoso", "discusion", "diseminado",
-//         "disgustado", "disgustar", "disgusto", "disparatado", "distante", "distraer", "disturbios", "diverso", "doler", "doloroso",
-//         "dudoso", "duro", "ebrio", "echador", "efimero", "elacion", "embotado", "embravecido", "embrollo", "embuste", "empobrecido",
-//         "empobrecimiento", "encogerse", "enconar", "encono", "encontronazo", "endeblez", "endiosamiento", "enervar", "enfadoso",
-//         "enfermedad", "enfermo", "enfurecido", "engano", "enganoso", "engendro", "engorroso", "engreimiento", "enojar", "enojoso",
-//         "enredo", "entono", "entremetido", "entrometido", "envalentonamiento", "envanecimiento", "enzarzar", "equivocacion", "equivocar",
-//         "equivocarse", "errar", "erroneo", "error", "escalofriante", "escandalizar", "escandaloso", "escaramuza", "escasez", "escaso",
-//         "escoria", "escoriar", "espanto", "espantoso", "espina", "espinoso", "estafa", "esteril", "estirado", "estrafalario",
-//         "estrambotico", "estremecedor", "estridente", "estruendo", "estupido", "evasivo", "exagerado", "exagerar", "exasperante",
-//         "excentrico", "execracion", "exiguidad", "exiguo", "exorbitante", "exterminacion", "exterminio", "extrano", "extravagante",
-//         "extremo", "facistol", "fallo", "falsificado", "falta", "fanfarron", "fantasma", "fantoche", "farolero", "fastidiado",
-//         "fastidiar", "fastidioso", "fatal", "fatiga", "fatuo", "fenomenal", "ferocidad", "fetidez", "fiasco", "fiera", "fiereza",
-//         "fisgon", "flaqueza", "flojo", "forzar", "fraude", "frenesi", "fresco", "frio", "frustrar", "fuero", "fugaz", "funesto",
-//         "furia", "furioso", "furor", "futilidad", "gallito", "gamberro", "gazapaton", "gazapo", "gemir", "genial", "glacial", "golpe",
-//         "gorila", "gratuito", "grave", "grima", "gris", "groseria", "grosero", "grunon", "guay", "hampon", "harpia", "harto", "hastiado",
-//         "hastio", "hecatombe", "hediondez", "hedor", "hematoma", "herida", "herir", "hinchazon", "histeria", "histerismo", "historia",
-//         "horrendo", "horrido", "horripilante", "horror", "horrorizar", "horroroso", "hortera", "hosco", "hostigar", "huir", "humillacion",
-//         "humillar", "ignominia", "imbecil", "impedimento", "imperfeccion", "impersonal", "impertinencia", "imponente", "imposible",
-//         "impreciso", "improductivo", "improperio", "imprudente", "impudico", "inaceptable", "inadecuado", "inadmisible", "inaguantable",
-//         "inapropiado", "incapacidad", "incapaz", "incivilizado", "incomodidad", "incomodo", "incompetencia", "incompleto", "inconcebible",
-//         "incongruente", "increpacion", "indigente", "indiscreto", "indistinguible", "indomado", "ineficacia", "ineficaz", "inepto", "inexperto",
-//         "infame", "infamia", "infantil", "infecundo", "inferior", "inflexible", "infortunado", "infortunio", "infructuoso", "iniquidad", "inmaduro",
-//         "inmodestia", "inmundo", "inopia", "inoportuno", "inquietante", "inquietar", "inquieto", "inquietud", "inquina", "insania", "insignificancia",
-//         "insignificante", "insolencia", "insoportable", "insuficiente", "insufrible", "insultante", "insultos", "interrumpir", "intolerable",
-//         "intranquilidad", "intranquilizar", "intranquilo", "intrusion", "inutil", "invalido", "invasion", "irritacion", "irritante", "irritar",
-//         "jactancia", "jactancioso", "jaque", "jaqueton", "ladino", "lamentable", "lamentoso", "lapsus", "lascivo", "lastimar", "lastimoso",
-//         "latoso", "lento", "lesion", "libidinoso", "lio", "llamativo", "lobrego", "locatis", "loco", "lozania", "lugubre", "luxurioso",
-//         "macabro", "magulladura", "magullar", "majara", "majareta", "majestuoso", "mal", "malhechor", "malhumorado", "malo", "manazas",
-//         "manejo", "mania", "marana", "masacre", "matamoros", "matanza", "maton", "melancolia", "melancolico", "melon", "mendrugo",
-//         "menosprecio", "mentira", "miedo", "mierda", "miscelaneo", "miserable", "misero", "mixto", "modesto", "mohoso", "molesto",
-//         "monotono", "monstruo", "morado", "morbido", "morbositat", "morboso", "mordaz", "mortal", "mortandad", "mortifero", "mortificacion",
-//         "movida", "nauseabundo", "nauseoso", "negro", "noble", "nocivo", "obsceno", "obsesionante", "obsoleto", "obstaculo", "obstinacion", "obtuso",
-//         "ofensa", "ofensivo", "ofrecerse", "oposicion", "oprimir", "ordinario", "orgullo", "orgulloso", "padecimiento", "palangana", "palurdo",
-//         "pasmado", "patan", "patinazo", "patoso", "pavoroso", "pebete", "pelea", "peligro", "peligroso", "pena", "penacho",
-//         "pendenciero", "penoso", "pequeno", "perdicion", "perdonavidas", "perfido", "perjudicial", "pernicioso", "pertinaz",
-//         "perturbador", "perturbar", "perverso", "pescuezo", "peso", "pestazo", "peste", "picado", "picaro", "pinchar",
-//         "plantista", "pobreteria", "preocupacion", "preocupante", "prepotencia", "prepotente", "presumido", "pretension",
-//         "privacion", "profundo", "punico", "puteria", "quebradero", "quebrantar", "querella", "rajon", "rasguno", "raspadura",
-//         "rebosante", "rechazar", "recular", "reganar", "reganina", "regano", "regio", "rehilete", "rencor", "repeler",
-//         "reprender", "represalia", "reprimenda", "reproche", "repugnancia", "repugnante", "repulsio", "resistir", "retrasado",
-//         "retraso", "revancha", "reyerta", "rigido", "rina", "rocin", "romper", "rufian", "ruido", "ruin", "sagaz", "sambenito",
-//         "sarao", "saturnino", "serio", "severo", "siniestro", "soberbia", "soberbio", "sobrecogedor", "socarron", "solemne",
-//         "solitario", "sombrio", "sorprender", "subalterno", "suficiencia", "sufrimiento", "sulfurado", "surtido", "tacha",
-//         "tarado", "tarambana", "tarasca", "tarugo", "temerario", "temible", "tempestuoso", "terco", "terquedad", "testarudez",
-//         "timo", "tocado", "toldo", "tomate", "tonto", "tormentoso", "traicionero", "transgresor", "trapisonda", "trastornar",
-//         "trauma", "triste", "ufania", "vanidad", "vareta", "vehemencia", "venganza", "vengar", "ventolera", "verde",
-//         "virulento", "vitriolico", "voceador", "vociferador", "zamarro", "zurullo",
-//         "agitacion", "agotamiento", "amenaza", "burla", "calvario", "cansancio", "censura", "confusion",
-//         "corrupcion", "crueldad", "desconocido", "dictadura", "dificil", "dificultad", "erupcion", "estricto",
-//         "feroz", "fijacion", "gasto", "gravedad", "ilegal", "inestable", "letal", "maldicion", "mancha", "miseria",
-//         "misterioso", "opresion", "oscuro", "parasito", "parodia", "pasado", "peor", "pesado", "plaga", "pleito",
-//         "pobre", "preocupado", "renuncia", "riguroso", "salvaje", "superficial", "tirania", "toxico", "vacio"
-//     ];
-// }
-// DEBUG
-// function getDoubleNegTerms () {
-//     return [
-//         "agitacion", "agotamiento", "amenaza", "burla", "calvario", "cansancio", "censura", "confusion",
-//         "corrupcion", "crueldad", "desconocido", "dictadura", "dificil", "dificultad", "erupcion", "estricto",
-//         "feroz", "fijacion", "gasto", "gravedad", "ilegal", "inestable", "letal", "maldicion", "mancha", "miseria",
-//         "misterioso", "opresion", "oscuro", "parasito", "parodia", "pasado", "peor", "pesado", "plaga", "pleito",
-//         "pobre", "preocupado", "renuncia", "riguroso", "salvaje", "superficial", "tirania", "toxico", "vacio"
-//     ];
-// }

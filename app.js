@@ -57,7 +57,6 @@ app.get('/auth/twitter', function (req, res) {
             res.send("yeah no. didn't work.");
         } else {
             req.session.search = req.query['search'];
-            console.log(req.session.search, "search: ");
             
             req.session.oauth = {};
             req.session.oauth.token = oauth_token;

@@ -17,6 +17,14 @@ block content
                     input.search(type='text', name='search', placeholder='Try a search')
                     input.search-button(type='submit', name='submit', value='submit') Go!
 
+            //- Haz que si searchTerm = "", no muestre este cacho (if con jade, ni idea)
+            h2 Búsqueda del término:
+                p= searchTerm
+            h2 Términos positivos:
+                p= contPositive
+            h2 Términos negativos:
+                p= contNegative
+
         div#content
             div.tweet-list
                 ol
