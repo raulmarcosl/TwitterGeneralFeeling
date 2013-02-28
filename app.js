@@ -54,13 +54,19 @@ app.get('/auth/twitter', function (req, res) {
         if (error) {
             console.log(error, "error");
             res.send("yeah no. didn't work.");
-        } else {
-            req.session.search = req.query['search'];
-            
-            req.session.oauth = {};
-            req.session.oauth.token = oauth_token;
-            req.session.oauth.token_secret = oauth_token_secret;
-            res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);
+        } else {     
+            console.log(req.query['search'], "asdfdsaafdfdasfads");
+                          
+            if (req.query['search'] === "") {
+                res.redirect('/');
+            } else {
+                req.session.search = req.query['search'];
+                
+                req.session.oauth = {};
+                req.session.oauth.token = oauth_token;
+                req.session.oauth.token_secret = oauth_token_secret;
+                res.redirect('https://twitter.com/oauth/authenticate?oauth_token=' + oauth_token);
+            }
         }
     });
 });

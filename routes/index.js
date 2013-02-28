@@ -12,14 +12,14 @@ exports.showTweets = function(req, res){
             "positive": 5,
             "negative": 2,
             "created_at": "Mon Jun 27 19:32:19 +0000 2011",
-            "text": "Esto es un Tweet de prueba positivo",
+            "text": "Esto es un Tweet de prueba positivo"
         }
         ,{
             "username": "@test2",
             "positive": 2,
             "negative": 7,
             "created_at": "Mon Jun 27 01:21:23 +0000 2011",
-            "text": "Esto es un Tweet de prueba negativo",
+            "text": "Esto es un Tweet de prueba negativo"
         }
     ];
     var searchTerm = req.session.search;
