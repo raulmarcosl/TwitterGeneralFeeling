@@ -95,6 +95,7 @@ function stemmer(word){
 
 1. No se consideran aquellos tweets que se obtienen por emparejamiento del término buscado con el nombre del autor y no con una palabra del texto.
 2. Los retweets tienen una valoración extra a la hora de hacer el cómputo global del término.
+3. Encontramos un fallo en el API de _twitter_ al hacer una llamada vacía. Esta situación la controlamos y no da error.
 
 
 ### Requisitos de ejecución 
@@ -147,9 +148,9 @@ También se podría ampliar la capacidad semántica del analizador teniendo en c
 
 |                       | Diseño del sistema | Investigación en tecnologías | Implementación | Diseño web | Memoria |
 |:----------------------|:------------------:|:----------------------------:|:--------------:|:----------:|:-------:|
-| Manuel Artero Aguita  |    45%             |         40%                  |    40%         |   50%      |  60%    |     
+| Manuel Artero Aguita  |    45%             |         40%                  |    40%         |   50%      |  70%    |     
 | Carlos Giraldo García |    5%              |         10%                  |    5%          |   5%       |  10%    |
-| Raúl Marcos Lorenzo   |    50%             |         50%                  |    55%         |   45%      |  30%    |
+| Raúl Marcos Lorenzo   |    45%             |         50%                  |    55%         |   45%      |  20%    |
 
 
 #### Valoración de la práctica
