@@ -10,20 +10,28 @@ block scripts
 block content
     div#wrapper.cf
         div#header
-            h1= title
+            h1= title 
 
             div.search
                 form(method='get', action='/auth/twitter')
-                    input.search(type='text', name='search', placeholder='Try a search')
+                    input.search-input(type='text', name='search', placeholder='Try a search')
                     input.search-button(type='submit', name='submit', value='submit') Go!
 
             //- Haz que si searchTerm = "", no muestre este cacho (if con jade, ni idea)
-            h2 Búsqueda del término:
-                p= searchTerm
-            h2 Términos positivos:
-                p= contPositive
-            h2 Términos negativos:
-                p= contNegative
+            if searchTerm != null 
+                div.results
+                    h3 
+                        | Búsqueda del término:
+                        span #{searchTerm}
+                    h3 
+                        | Términos positivos:
+                        span #{contPositive}
+                    h3 
+                        | Términos negativos:
+                        span #{contNegative}
+                div.chart
+                    div.percentage(data-percent='#{percentage}') #{100-percentage}
+                    div.label general approval: #{100-percentage}%
 
         div#content
             div.tweet-list
@@ -36,10 +44,9 @@ block content
                             p.negative= tweet.negative
                             p.text= tweet.text
                             p.created_at= tweet.created_at
-
-            div.chart
-                div.percentage(data-percent='#{percentage}') #{100-percentage}
-                div.label general approval: #{100-percentage}%
+           
     div#footer
         p 
             | Raúl Marcos Lorenzo - Manuel Artero Anguita - Carlos Giraldo García
+        p
+            a(href='https://github.com/ISBC/TwitterGeneralFeeling') github

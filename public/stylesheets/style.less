@@ -16,9 +16,19 @@ body {
     color: black;
     background-color: @BROKEN_WHITE;
 
-    h1,h2,h3,h4 {
+    h1,h2 {
         color: @SPECIAL_COLOR;
         padding-bottom: 1em;
+    }
+    h3 {
+        color: @BORDER_GREY;
+        padding: 0.5em;
+        letter-spacing: 0.05em;
+    }
+    span {
+        color: @SPECIAL_COLOR;
+        font-size: 1.1em;
+        padding-left: 0.5em;
     }
 }
 
@@ -51,7 +61,14 @@ body {
         width:100%;
         padding-bottom: 2em;
         border-bottom: 0.2em solid @GREY;
-
+        .results {
+            width: 65%;
+            float: left;
+        }
+        .chart {
+            width: 35%;
+            float: right;
+        }
     }
 
     #content {
@@ -61,7 +78,7 @@ body {
         
 
         .tweet-list {
-            width: 70%;
+            width: 90%;
             float: left;
             position: relative;
 
@@ -79,10 +96,7 @@ body {
             }
         }
 
-        .chart {
-            width: 25%;
-            float: right;
-        }
+
     }
 
 } 
@@ -94,6 +108,11 @@ div#footer {
     p {
        font-size: 0.7em;
        color: @BORDER_GREY; 
+    }
+    a {
+        text-decoration: none;
+        color: @BORDER_GREY;
+        font-size: 1em;  
     }
 }
 
@@ -134,11 +153,12 @@ div#footer {
 
 .search-input {
     border: 0.2em solid @GREY; 
-    padding: 0em 1.5em 0em 1.5em;
-    width: 70%;
-    height: 80%;
+    padding: 0.4em;
+    width: 20%;
+    height: 30%;
     resize: none;
     .awesome-input();
+    font-size: 1.1em;
 } 
                     
 .search-button {
@@ -148,6 +168,7 @@ div#footer {
    text-decoration: none;
    vertical-align: middle;
    .awesome-button();
+   margin-left: 0.3em;
 }
 
 .search-button:hover {
@@ -180,7 +201,7 @@ td#button {
 
 .chart {
     .percentage {
-        margin: 5em 4em 1em 4em;
+        margin: 2em;
     }
     .label {
         font-size: 0.9em;
