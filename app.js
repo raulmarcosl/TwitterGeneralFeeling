@@ -83,7 +83,7 @@ app.get('/auth/twitter/callback', function (req, res, next) {
             } else {
                 req.session.oauth.access_token = oauth_access_token;
                 req.session.oauth.access_token_secret = oauth_access_token_secret;
-                console.log("<<<<<RESULTS: ", results);
+
                 twit = new Twitter({
                     consumer_key: 'acxVDBo5pbNEHjZOPaWa8w',
                     consumer_secret: 'MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw',
@@ -99,17 +99,16 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                         lang: 'es'
                     }, 
                     function(data) {
-                        console.log(data.statuses[0], "message");
-                        
-                        var tweets = [], len = data.statuses.length;
+                        var tweets = [], len = data.statuses.length, oneTweet;
 
                         for (var i  = 0; i < len; i += 1) {
-                            var oneTweet = {};
+                            oneTweet = {};
                             oneTweet["favorited"] = false;
+                            oneTweet["username"] = "@" + data.statuses[i].user.screen_name;
                             oneTweet["created_at"] = data.statuses[i].created_at;
                             oneTweet["text"] = data.statuses[i].text;                            
                             tweets.push(oneTweet);
-                        }                        
+                        }
 
                         req.session.tweets = tweets;                        
                         res.redirect('/');
