@@ -32,8 +32,25 @@ El recurso se encuentra en ___https://code.google.com/p/urim/source/browse/jsSno
 
 #### Implementación
 
-Descripcion de las tecnologías web utilizadas: Node  
-Exlpicar la implementación:
+Tecnológias web utilziadas.  
+**Node:** es un entorno de programación basado en _JavaScript_ que funciona del lado del servidor. Más información en ___http://nodejs.org/___  
+**Express** es un framework web para _Node_. Más información en ___http://expressjs.com/___
+
+***
+
+
+En el archivo ```app.js``` se lanza el servidor. 
+
+```
+http.createServer(app).listen(app.get('port'), function(){
+  console.log("Express server listening on port " + app.get('port'));
+});
+```
+
+y que como usamos express, pues app.js delega en routes y en views
+
+La aplicación se define en el archivo ```app.js``` en el que se configuran las dependencias, se definen las rutas que vamos a considerar y se lanza el servidor.
+
 
 1. Explicar la conexión con la fuente de datos
 2. Explicar el tratamiento del texto (stemmer)
@@ -51,6 +68,9 @@ Esto nos instalará todas las librerías que el proyecto necesita.
 ```$> node app```  
 Nos aparecerá ```Express server listening on port 8080``` por lo que ya podremos abrir el navegador y lanzar una petición a ```localhost:8080```
 
+#####Ejecución en internet
+http://desolate-sierra-9681.herokuapp.com/
+
 **Nota:**  
 
 
@@ -60,18 +80,21 @@ Hemos diseñado una interfaz muy simple que consta de 3 elemetos:
 
 1. Un cuadro de texto de entrada donde podremos escribir el concepto a buscar.
 2. Una lista de tweets encontrados que contienen el concepto buscado.
-3. Un gráfico que muestra el grado de positividad asociado a la palabra por la comunidad de ___twitter___
+3. Un gráfico que muestra el grado de positividad asociado a la palabra por la comunidad de _twitter_
 
 
 #### Comentarios generales sobre la práctica
 
 1. ¿Te parece positivo haber utilizado tecnologías web?
-> El desarrollo con tecnologías web es la gran carencia en la formación en la ___UCM___; siempre resulta interesante aprender a utilizar e investigar nuevas tecnologías 
+
+> El desarrollo con tecnologías web es la gran carencia en la formación en la _UCM_; siempre resulta interesante aprender a utilizar e investigar nuevas tecnologías 
 
 2. Valorar el tema de la práctica y sus posibles aplicaciones prácticas
+
 > CONTAR QUE NOS INTERESA MUCHO 
 
 3. Extensiones posibles
+
 > 
 
 
