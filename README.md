@@ -36,8 +36,14 @@ Exlpicar la implementación:
 
 #### Requisitos de ejecución 
 
-¿Qué hay que hacer para ejecutarlo?
-
+¿Qué hay que hacer para ejecutarlo?  
+1. Necesitaremos tener instalado ___Node___, para ello seguimos los pasos de http://http://nodejs.org/  
+2. Nos movemos a la carpeta del proyecto y ejecutamos el siguiente comando  
+```$> npm install```  
+Esto nos instalará todas las referencias que el proyecto necesita
+3. Por último lanzamos el servidor:
+```$> node app```
+ 
 
 #### Explicación de la interfaz
 

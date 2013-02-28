@@ -11,10 +11,11 @@ block content
     div#wrapper.cf
         div#header
             h1= title
+
             div.search
                 form(method='get', action='/auth/twitter')
                     input.search(type='text', name='search', placeholder='Try a search')
-                    input.stemmer(type='submit', name='submit', value='submit') Go!
+                    input.search-button(type='submit', name='submit', value='submit') Go!
 
         div#content
             div.tweet-list

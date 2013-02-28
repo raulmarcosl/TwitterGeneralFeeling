@@ -119,36 +119,27 @@ div#footer {
     */
 }
 
-.search-div {
-    table {
-        tr {
-            td {
-
-                textarea {
-                    border: 0.2em solid @GREY; 
-                    padding: 0.6em 1.5em 0em 0.6em;
-                    width: 80%;
-                    height: 80%;
-                    resize: none;
-                    .awesome-input();
-                } 
+.search-input {
+    border: 0.2em solid @GREY; 
+    padding: 0em 1.5em 0em 1.5em;
+    width: 70%;
+    height: 80%;
+    resize: none;
+    .awesome-input();
+} 
                     
-                button {
-                   color: @BROKEN_WHITE;
-                   font-size: 1.1em;
-                   padding: 0.4em 0.8em 0.4em 0.8em;
-                   text-decoration: none;
-                   vertical-align: middle;
-                   .awesome-button();
-                }
+.search-button {
+   color: @BROKEN_WHITE;
+   font-size: 1.1em;
+   padding: 0.4em 0.8em 0.4em 0.8em;
+   text-decoration: none;
+   vertical-align: middle;
+   .awesome-button();
+}
 
-                button:hover {
-                    background: #E18728;
-                    color: white;
-                }
-            }
-        }
-    }
+.search-button:hover {
+    background: #E18728;
+    color: white;
 }
 
 td#button {
