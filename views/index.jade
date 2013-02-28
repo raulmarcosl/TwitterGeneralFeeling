@@ -16,9 +16,9 @@ block content
                     form(method='POST', action='/search')
                         tr
                             td
-                                input.search(type='text', , name='search', placeholder='Try a search')
+                                input.search-input(type='text', , name='search', placeholder='Try a search')
                             td#button
-                                input(type='submit', name='submit', value='submit') Go!
+                                input.search-button(type='submit', name='submit', value='submit') Go!
 
         div#content
             div.tweet-list

@@ -64,17 +64,17 @@ div#footer p {
   font-size: 0.7em;
   color: #6c7068;
 }
-.search-div table tr td textarea {
+.search-input {
   border: 0.2em solid #bcbcbc;
-  padding: 0.6em 1.5em 0em 0.6em;
-  width: 80%;
+  padding: 0em 1.5em 0em 1.5em;
+  width: 70%;
   height: 80%;
   resize: none;
   -webkit-box-shadow: inset 0 0 0.05em rgba(0, 0, 0, 0), 0 0 0.1em rgba(0, 0, 0, 0);
   -moz-box-shadow: inset 0 0 0.05em rgba(0, 0, 0, 0), 0 0 0.1em rgba(0, 0, 0, 0);
   box-shadow: inset 0 0 0.05em rgba(0, 0, 0, 0), 0 0 0.1em rgba(0, 0, 0, 0);
 }
-.search-div table tr td button {
+.search-button {
   color: #e4e7f4;
   font-size: 1.1em;
   padding: 0.4em 0.8em 0.4em 0.8em;
@@ -97,7 +97,7 @@ div#footer p {
     */
 
 }
-.search-div table tr td button:hover {
+.search-button:hover {
   background: #E18728;
   color: white;
 }
