@@ -13,11 +13,12 @@ block content
             h1= title
             div.search-div
                 table
-                    tr
-                        td
-                            textarea.search-area Type here 
-                        td#button
-                            button.stemmer(type='button') Go!
+                    form(method='POST', action='/search')
+                        tr
+                            td
+                                input.search(type='text', , name='search', placeholder='Try a search')
+                            td#button
+                                input(type='submit', name='submit', value='submit') Go!
 
         div#content
             div.tweet-list

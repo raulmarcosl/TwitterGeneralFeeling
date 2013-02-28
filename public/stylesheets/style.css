@@ -1,1 +1,128 @@
-@charset "utf-8";body{background:white;margin:0;padding:1em;font:small Verdana,Arial;color:black;background-color:#e4e7f4}body h1,body h2,body h3,body h4{color:#5ecbca;padding-bottom:1em}.cf:before,.cf:after{content:" ";display:table}.cf:after{clear:both}div#wrapper{width:90%;height:100%;margin:auto;margin-top:4em;background-color:white;padding:3em;border:.1em solid #6c7068}div#wrapper div#header{float:left;width:100%;padding-bottom:2em;border-bottom:.2em solid #bcbcbc}div#wrapper div#content{float:left;width:100%;height:100%}div#wrapper div#content div.tweet-list{width:70%;float:left;position:relative}div#wrapper div#content div.chart{width:25%;float:right}div#footer{widht:90%;margin:1.5em;text-align:center}div#footer p{font-size:.7em;color:#6c7068}.search-div table tr td textarea{border:.2em solid #bcbcbc;padding:.6em 1.5em 0 .6em;width:80%;height:80%;resize:none;-webkit-box-shadow:inset 0 0 .05em rgba(0,0,0,0),0 0 .1em rgba(0,0,0,0);-moz-box-shadow:inset 0 0 .05em rgba(0,0,0,0),0 0 .1em rgba(0,0,0,0);box-shadow:inset 0 0 .05em rgba(0,0,0,0),0 0 .1em rgba(0,0,0,0)}.search-div table tr td button{color:#e4e7f4;font-size:1.1em;padding:.4em .8em .4em .8em;text-decoration:none;vertical-align:middle;background:-webkit-gradient(linear,left top,left bottom,from(#5ecbc9),to(#36807f));background:-webkit-linear-gradient(top,#5ecbc9,#36807f);background:-moz-linear-gradient(top,#5ecbc9,#36807f);background:-ms-linear-gradient(top,#5ecbc9,#36807f);background:-o-linear-gradient(top,#5ecbc9,#36807f)}.search-div table tr td button:hover{background:#e18728;color:white}td#button{padding-bottom:.45em}.tweet-list ol{font-style:italic;font-size:1.3em;color:black}.tweet-list ol li{padding:.5em}.tweet-list ol li p{padding:.5em;font-style:normal;font-size:.8em;border-left:.1em solid #5ecbca}.chart .percentage{margin:5em 4em 1em 4em}.chart .label{font-size:.9em;color:#bcbcbc;padding-left:3em}
+@charset "utf-8";
+body {
+  background: white;
+  margin: 0;
+  padding: 1em;
+  font: small Verdana, Arial;
+  color: black;
+  background-color: #e4e7f4;
+}
+body h1,
+body h2,
+body h3,
+body h4 {
+  color: #5ecbca;
+  padding-bottom: 1em;
+}
+.cf:before,
+.cf:after {
+  content: " ";
+  /* 1 */
+
+  display: table;
+  /* 2 */
+
+}
+.cf:after {
+  clear: both;
+}
+div#wrapper {
+  width: 90%;
+  height: 100%;
+  margin: auto;
+  margin-top: 4em;
+  background-color: white;
+  padding: 3em;
+  border: 0.1em solid #6c7068;
+}
+div#wrapper div#header {
+  float: left;
+  width: 100%;
+  padding-bottom: 2em;
+  border-bottom: 0.2em solid #bcbcbc;
+}
+div#wrapper div#content {
+  float: left;
+  width: 100%;
+  height: 100%;
+}
+div#wrapper div#content div.tweet-list {
+  width: 70%;
+  float: left;
+  position: relative;
+}
+div#wrapper div#content div.chart {
+  width: 25%;
+  float: right;
+}
+div#footer {
+  widht: 90%;
+  margin: 1.5em;
+  text-align: center;
+}
+div#footer p {
+  font-size: 0.7em;
+  color: #6c7068;
+}
+.search-div table tr td textarea {
+  border: 0.2em solid #bcbcbc;
+  padding: 0.6em 1.5em 0em 0.6em;
+  width: 80%;
+  height: 80%;
+  resize: none;
+  -webkit-box-shadow: inset 0 0 0.05em rgba(0, 0, 0, 0), 0 0 0.1em rgba(0, 0, 0, 0);
+  -moz-box-shadow: inset 0 0 0.05em rgba(0, 0, 0, 0), 0 0 0.1em rgba(0, 0, 0, 0);
+  box-shadow: inset 0 0 0.05em rgba(0, 0, 0, 0), 0 0 0.1em rgba(0, 0, 0, 0);
+}
+.search-div table tr td button {
+  color: #e4e7f4;
+  font-size: 1.1em;
+  padding: 0.4em 0.8em 0.4em 0.8em;
+  text-decoration: none;
+  vertical-align: middle;
+  background: -webkit-gradient(linear, left top, left bottom, from(#5ecbc9), to(#36807f));
+  background: -webkit-linear-gradient(top, #5ecbc9, #36807f);
+  background: -moz-linear-gradient(top, #5ecbc9, #36807f);
+  background: -ms-linear-gradient(top, #5ecbc9, #36807f);
+  background: -o-linear-gradient(top, #5ecbc9, #36807f);
+  /* bordes redondeados
+     *
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+    -webkit-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    -moz-box-shadow: rgba(0,0,0,1) 0 1px 0;
+    box-shadow: rgba(0,0,0,1) 0 1px 0;
+    text-shadow: rgba(0,0,0,.4) 0 1px 0;
+    */
+
+}
+.search-div table tr td button:hover {
+  background: #E18728;
+  color: white;
+}
+td#button {
+  padding-bottom: 0.45em;
+}
+.tweet-list ol {
+  font-style: italic;
+  font-size: 1.3em;
+  color: black;
+}
+.tweet-list ol li {
+  padding: 0.5em;
+}
+.tweet-list ol li p {
+  padding: 0.5em;
+  font-style: normal;
+  font-size: 0.8em;
+  border-left: 0.1em solid #5ecbca;
+}
+.chart .percentage {
+  margin: 5em 4em 1em 4em;
+}
+.chart .label {
+  font-size: 0.9em;
+  color: #bcbcbc;
+  padding-left: 3em;
+}

@@ -11,7 +11,6 @@ express = require('express');
 index = require('./routes/index');
 routes = require('./routes');
 index = require('./routes/index');
-// user = require('./routes/user');
 http = require('http');
 path = require('path');
 OAuth = require('oauth').OAuth;
@@ -33,7 +32,7 @@ app.use(express.cookieParser());
 app.use(express.session({secret: 'blahblahblah'}));
 
 app.configure(function(){
-  app.set('port', process.env.PORT || 3000);
+  app.set('port', process.env.PORT || 8080);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
   app.use(express.favicon());
@@ -51,8 +50,6 @@ app.configure('development', function(){
 
 app.get('/', index.showTweets);
 
-// app.get('/users', user.list);
-
 app.get('/auth/twitter', function (req, res) {
     oa.getOAuthRequestToken(function (error, oauth_token, oauth_token_secret, results) {
         if (error) {
@@ -68,6 +65,10 @@ app.get('/auth/twitter', function (req, res) {
         }
     });
 });
+
+app.post('/search'), function (req, res) {
+    console.log("aaa");
+};
 
 app.get('/auth/twitter/callback', function (req, res, next) {
     var oauth, twit;
@@ -92,11 +93,6 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                     access_token_secret: oauth_access_token_secret
                 });
 
-                console.log(oauth_access_token, "acces token");
-                console.log(oauth_access_token_secret, "secret");
-                
-                
- 
                 twit.get('https://api.twitter.com/1.1/search/tweets.json',
                     {
                         q:'Complutense',

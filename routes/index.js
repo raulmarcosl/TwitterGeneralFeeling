@@ -13,7 +13,7 @@ exports.showTweets = function(req, res){
             "text": "Misleading error message - If you try to follow a user who was recently suspended, you may see an error... http://t.co/cCIWIwg",
         }
         ,{
-            "favorited": false,
+            "favorited": true,
             "created_at": "Mon Jun 27 01:21:23 +0000 2011",
             "text": "Tweet delivery delays for streaming clients - We experienced temporary delays but the issue has now been... http://t.co/IcQut5R",
         }
@@ -23,7 +23,6 @@ exports.showTweets = function(req, res){
             "text": "This is just a test",
         }
     ]
-    // ---
 
     res.render('index', { tweets: tweets, title: "Twitter General Feeling Analizer", percentage: 55 });
 };
