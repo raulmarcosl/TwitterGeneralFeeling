@@ -17,24 +17,12 @@ OAuth = require('oauth').OAuth;
 app = express();
 Twitter = require('twitter');
 
-// OLD TWITTER APP: ORIGO TEST
-// oa = new OAuth(
-//     "https://api.twitter.com/oauth/request_token",
-//     "https://api.twitter.com/oauth/access_token",
-//     "acxVDBo5pbNEHjZOPaWa8w",
-//     "MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw",
-//     "1.0",
-//     "http://localhost:8080/auth/twitter/callback",
-//     "HMAC-SHA1"
-// );
-
-// NEW TWITTER APP
 oa = new OAuth(
     "https://api.twitter.com/oauth/request_token",
     "https://api.twitter.com/oauth/access_token",
     "YaYAKQG4uiRlxDfQAiHOQ",
     "RGvxP9AMTM8SKQ1AiqPxNoPOZDEqkLOfm8cNsP4o",
-    "1.0",
+    "1.1",
     "http://localhost:8080/auth/twitter/callback",
     "HMAC-SHA1"
 );
@@ -94,15 +82,6 @@ app.get('/auth/twitter/callback', function (req, res, next) {
                 req.session.oauth.access_token = oauth_access_token;
                 req.session.oauth.access_token_secret = oauth_access_token_secret;
 
-                // OLD TWITTER APP: ORIGO TEST
-                // twit = new Twitter({
-                //     consumer_key: 'acxVDBo5pbNEHjZOPaWa8w',
-                //     consumer_secret: 'MwC2uh45dprfWqmQd1lPXdWB3QiWC4QW5Fkxcw',
-                //     access_token_key: oauth_access_token,
-                //     access_token_secret: oauth_access_token_secret
-                // });
-
-                // NEW TWITTER APP
                 twit = new Twitter({
                     consumer_key: 'YaYAKQG4uiRlxDfQAiHOQ',
                     consumer_secret: 'RGvxP9AMTM8SKQ1AiqPxNoPOZDEqkLOfm8cNsP4o',
